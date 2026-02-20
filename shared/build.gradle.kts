@@ -16,6 +16,10 @@ kotlin {
         }
     }
 
+    js(IR) {
+        browser()
+    }
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -34,6 +38,11 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation(libs.kotlinx.coroutines)
+            }
         }
     }
 }

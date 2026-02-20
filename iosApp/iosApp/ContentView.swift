@@ -10,11 +10,20 @@ struct ContentView: View {
                 .padding()
             
             HStack(spacing: 8) {
-                Button(action: viewModel.onStartClicked, label: {
+                Button(action: {
+                    viewModel.onStartClicked()
+                }, label: {
                     Text("Start")
                 })
-                Button(action: viewModel.onStopClicked, label: {
+                Button(action: {
+                    viewModel.onStopClicked()
+                }, label: {
                     Text("Stop")
+                })
+                Button(action: {
+                    viewModel.onCopyClicked()
+                }, label: {
+                    Text("Copy")
                 })
             }
         }
@@ -33,6 +42,10 @@ class StopwatchViewModelWrapper: ObservableObject {
     
     func onStopClicked() {
         viewModel.onStopClicked()
+    }
+
+    func onCopyClicked() {
+        viewModel.onCopyClicked()
     }
     
     init() {
